@@ -1,0 +1,78 @@
+.twin-operating-layer{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden;isolation:isolate}
+.twin-operating-layer>svg{display:block;width:100%;height:100%;overflow:visible}
+.twin-pipe-track{stroke:#14cbe8;stroke-width:3;opacity:.17}
+.twin-primary-flow,.twin-steam-flow{stroke:#76f1ff;stroke-width:1.5;stroke-dasharray:5 19;animation:twin-medium-flow var(--twin-flow-duration,3.2s) linear infinite;opacity:.65}
+.twin-steam-flow{stroke:#ffdfba;stroke-dasharray:4 22;animation-direction:reverse;opacity:.52}
+.twin-device-outline{fill:#03384c88;stroke:#70e9ed;stroke-width:1;opacity:.68}
+.twin-pump-rotor,.twin-turbine-rotor{fill:#85f2f5;stroke:#bcfffb;stroke-width:.45;transform-origin:0 0;animation:twin-rotor var(--twin-pump-duration,3.2s) linear infinite;opacity:.75}
+.twin-turbine-rotor{animation-duration:var(--twin-turbine-duration,3.5s);opacity:.53}
+.twin-operating-layer[data-turbine-running=false] .twin-turbine-rotor{animation-play-state:paused!important}
+.twin-generator-track{fill:none;stroke:#84eaff;stroke-width:1;opacity:.12}
+.twin-generator-ring{fill:none;stroke:#b4faff;stroke-width:1.6;stroke-dasharray:17 118;opacity:.46;animation:twin-generator var(--twin-generator-duration,7s) linear infinite}
+.twin-operating-layer[data-load=high] .twin-generator-ring{opacity:.64}
+.twin-liquid-fill{transition:y .45s,height .45s}
+.twin-liquid-surface{animation:twin-water 3.4s ease-in-out infinite;transition:d .45s}
+.twin-subtle-scan{position:absolute;inset:0;transform:translateY(-100%);background:linear-gradient(0deg,transparent 0%,#66ebf010 5%,transparent 10%);animation:twin-scan 9s linear infinite;pointer-events:none}
+.twin-micro-particles circle{fill:#a0e9f9;opacity:.15;animation:twin-particle 8s ease-in-out infinite}
+.twin-selected-outline{fill:none;stroke:#70fff1;stroke-width:1.2;opacity:.8}
+.twin-device-pulse,.twin-alarm-pulse{fill:none;stroke:#8cfff5;stroke-width:1.3;transform-origin:center;transform-box:fill-box;animation:twin-device-pulse .65s ease-out both}
+.twin-alarm-pulse{stroke:#ffbc58;animation-duration:.75s}
+.twin-alert-symbol{fill:#123645;stroke:#ffbf62;stroke-width:1.2}
+.twin-alert-mark{fill:#ffcc72;font-size:10px;font-weight:700}
+.twin-operating-layer[data-alarm=true] .twin-operating-primary .twin-device-outline{stroke:#ffbd64}
+.twin-operating-layer[data-alarm=true] .twin-operating-primary .twin-primary-flow{stroke:#a1dddc;opacity:.48}
+.twin-operating-layer:is([data-selected=pump],[data-selected=reactor],[data-selected=steam]) .twin-operating-primary .twin-pipe-track{opacity:.5;stroke:#4affdf;transition:opacity .3s,stroke .3s}
+.twin-operating-layer[data-selected=turbine] .twin-operating-secondary .twin-pipe-track{opacity:.5;stroke:#fff3d5;transition:opacity .3s,stroke .3s}
+.ov-risk-meter>i{transition:width .7s ease}
+.ov-kpi-copy>strong>span,.ru-kpi-copy>strong>span{font:inherit;color:inherit}
+.twin-operating-layer :is(.twin-operating-primary,.twin-operating-secondary,.twin-operating-electrical){transition:opacity .45s ease}
+.twin-operating-layer[data-system=reactor] :is(.twin-operating-secondary,.twin-operating-electrical),.twin-operating-layer[data-system=primary] :is(.twin-operating-secondary,.twin-operating-electrical),.twin-operating-layer[data-system=secondary] :is(.twin-operating-primary,.twin-operating-electrical),.twin-operating-layer[data-system=electrical] :is(.twin-operating-primary,.twin-operating-secondary),.twin-operating-layer[data-system=auxiliary] :is(.twin-operating-secondary,.twin-operating-electrical){opacity:.25}
+.ru-camera-layer{position:absolute;inset:0;transform-origin:55% 54%;transition:transform .5s cubic-bezier(.22,.7,.3,1);isolation:isolate}
+.ru-scene[data-system=reactor] .ru-camera-layer{transform:scale(1.08) translate(-1%,3%)}
+.ru-scene[data-system=primary] .ru-camera-layer{transform:scale(1.08) translate(2%,-1%)}
+.ru-scene[data-system=secondary] .ru-camera-layer{transform:scale(1.08) translate(-4%,1%)}
+.ru-scene[data-system=electrical] .ru-camera-layer{transform:scale(1.08) translate(-6%,-1%)}
+.ru-scene[data-system=auxiliary] .ru-camera-layer{transform:scale(1.08) translate(1%,-3%)}
+.ru-camera-layer .ru-twin-image{z-index:0;transition:opacity .5s}
+.ru-scene[data-system]:not([data-system=all]) .ru-twin-image{opacity:.72}
+.ru-scene .ru-hotspot.ru-system-muted{opacity:.25;transition:opacity .5s}
+.ru-scene .ru-hotspot.ru-system-target{border-color:#60f4ed;transition:opacity .5s,border-color .3s}
+.ru-system-context{position:absolute;z-index:4;left:17px;bottom:40px;display:flex;flex-direction:column;gap:4px;max-width:225px;padding:8px 10px;border-left:2px solid #27dbd4;background:#032536d9;pointer-events:none}
+.ru-system-context strong{font-size:12px;color:#d5f5fc}.ru-system-context span{font-size:10px;line-height:1.6;color:#8bbfd1}
+.ru-data-tick{display:inline-flex;align-items:center;gap:5px;color:#7eafc5;font-size:9px;white-space:nowrap}
+.ru-data-tick i{width:5px;height:5px;border-radius:50%;background:#2fe8d6;animation:twin-data-tick .16s ease-out both}
+.ru-condition-grid strong>span,.sim-metric strong>span{display:inline;font:inherit;color:inherit;line-height:inherit}
+.ru-event-banner[data-alarm-card=true] .ru-event-summary{animation:twin-alert-enter .3s ease-out both}
+.ru-step.ru-current .ru-step-dot{animation:twin-step-on .25s ease-out both}
+.utc-trend-line.utc-first-draw{stroke-dasharray:1000;stroke-dashoffset:0;animation:twin-trend-draw .9s ease-out both}
+.utc-trend-line.utc-new-segment{stroke-dasharray:100;stroke-dashoffset:0;animation:twin-new-segment .35s ease-out both}
+.utc-live-tick{display:inline-flex;gap:4px;align-items:center;color:#79aebd;font-size:9px;font-weight:400;margin-left:5px}.utc-live-tick i{width:4px;height:4px;border-radius:50%;background:#3be9c9;animation:twin-data-tick .16s ease-out both}
+.sim-mimic .sim-liquid-level{transition:y .4s ease-out,height .4s ease-out}
+.sim-mimic .sim-water-surface{animation:twin-water 3.4s ease-in-out infinite;transition:cy .4s ease-out}
+.sim-mimic .sim-water-surface[data-wet=false]{visibility:hidden}
+.sim-mimic .sim-turbine-blades{transform-origin:0 0;animation:twin-rotor 3.5s linear infinite}
+.sim-mimic .sim-generator-ring{fill:none;stroke:#a5e5ee;stroke-width:1.2;opacity:.45;stroke-dasharray:15 115;animation:twin-generator 7s linear infinite}
+.sim-mimic .sim-leak-particle{fill:#ffc497;opacity:0;animation:twin-leak .85s ease-out infinite}
+.sim-mimic .sim-leak-particle:nth-child(2){animation-delay:-.28s}.sim-mimic .sim-leak-particle:nth-child(3){animation-delay:-.56s}
+.sim-mimic[data-running=false] :is(.sim-water-surface,.sim-turbine-blades,.sim-generator-ring,.sim-leak-particle),.sim-mimic[data-steam-flow=false] :is(.sim-turbine-blades,.sim-generator-ring),.twin-operating-layer[data-running=false] *,.ru-page[data-demo-playing=false] .ru-data-tick i{animation-play-state:paused!important}
+.app-shell[data-motion=paused] :is(.twin-operating-layer,.sim-mimic,.ru-camera-layer,.utc-panel) *,.app-shell[data-presentation-paused=true] .twin-operating-layer *{animation-play-state:paused!important}
+.app-shell[data-motion=paused] .ru-camera-layer{transition:none}
+@keyframes twin-medium-flow{to{stroke-dashoffset:-96}}
+@keyframes twin-rotor{to{transform:rotate(360deg)}}
+@keyframes twin-generator{to{stroke-dashoffset:-135}}
+@keyframes twin-water{0%,100%{transform:translateY(-1px)}50%{transform:translateY(1px)}}
+@keyframes twin-scan{to{transform:translateY(100%)}}
+@keyframes twin-particle{0%,100%{opacity:.1;transform:translate(0,0)}50%{opacity:.3;transform:translate(7px,-13px)}}
+@keyframes twin-device-pulse{from{opacity:.8;transform:scale(.8)}to{opacity:0;transform:scale(1.65)}}
+@keyframes twin-data-tick{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes twin-alert-enter{from{opacity:.2;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@keyframes twin-step-on{from{transform:scale(.83)}to{transform:scale(1)}}
+@keyframes twin-trend-draw{from{stroke-dashoffset:1000}to{stroke-dashoffset:0}}
+@keyframes twin-new-segment{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+@keyframes twin-leak{from{opacity:.65;transform:translate(0,0)}to{opacity:0;transform:translate(var(--leak-x,12px),var(--leak-y,20px))}}
+@media(max-width:700px){.ru-system-context{left:10px;bottom:32px;max-width:160px;padding:5px 7px}.ru-system-context span{display:none}.ru-data-tick{font-size:8px}.ru-heading-tools .ru-data-tick{display:none}.twin-micro-particles{opacity:.7}}
+@media(prefers-reduced-motion:reduce){.twin-operating-layer *,.sim-mimic :is(.sim-water-surface,.sim-turbine-blades,.sim-generator-ring,.sim-leak-particle),.ru-data-tick i,.utc-live-tick i,.utc-trend-line,.ru-event-banner .ru-event-summary,.ru-step.ru-current .ru-step-dot{animation:none!important}.twin-subtle-scan,.twin-micro-particles,.sim-leak-particle{opacity:0}.ru-camera-layer,.sim-mimic .sim-liquid-level,.sim-mimic .sim-water-surface,.twin-liquid-fill{transition:none!important}.ru-camera-layer{transform:none!important}}
+/* Slow blueprint drift stays inside the twin, behind the operational accents. */
+.twin-operating-layer:before{content:"";position:absolute;inset:-20px;pointer-events:none;opacity:.055;background-image:linear-gradient(#5ed4df 1px,transparent 1px),linear-gradient(90deg,#5ed4df 1px,transparent 1px);background-size:42px 42px;animation:twin-blueprint-drift 25s ease-in-out infinite alternate}
+@keyframes twin-blueprint-drift{to{transform:translate(14px,10px)}}
+@media(prefers-reduced-motion:reduce){.twin-operating-layer:before{animation:none!important;display:none}}

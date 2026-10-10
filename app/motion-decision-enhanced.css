@@ -1,0 +1,62 @@
+/* One-shot state animations; data values and review state remain owned by their stores. */
+.app-shell .dc-page .dc-option{animation:dme-card-enter 240ms ease-out both;transition:border-color 200ms,background 200ms,opacity 200ms;}
+.app-shell .dc-page .dc-option:nth-child(2){animation-delay:80ms}
+.app-shell .dc-page .dc-option:nth-child(3){animation-delay:160ms}
+.app-shell .dc-page .dc-option.recommended{border-color:#11d8bc}
+.app-shell .dc-page .dc-option .dci-recommendation,.app-shell .dc-page .dci-weight-note .dci-recommendation{animation:dme-badge-pop 220ms ease-out both}
+.app-shell .dc-page .dci-score>strong{animation:none}
+.dme-score-bar{height:3px;margin:7px 0 9px;background:#123f50;border-radius:3px;overflow:hidden}
+.dme-score-bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#088fc0,#1be7cf);transform-origin:left;transition:transform 350ms cubic-bezier(.2,.8,.2,1)}
+.app-shell .dc-risk{position:relative;isolation:isolate}
+.dme-risk-gauge{width:100px;height:55px;margin:2px auto -42px;opacity:.8;overflow:visible}
+.dme-risk-arc{transition:stroke-dashoffset 700ms ease-out,stroke 300ms;animation:dme-gauge-draw 800ms ease-out backwards}
+.app-shell .dc-risk>strong{position:relative;margin-top:18px;font-size:29px}
+.app-shell .dc-result>svg:first-child{animation:dme-result-pop 300ms ease-out both;animation-delay:var(--result-delay,0ms)}
+.ed-detail.ed-motion-target{animation:dme-evidence-target 700ms ease-out both}
+.ed-motion-content,.ea-motion-detail{animation:dme-detail-fade 240ms ease-out both}
+.ed-hash [data-calculating="true"],.ea-integrity [data-calculating="true"]{color:#75c6d7;letter-spacing:1px}
+.app-shell .ea-page .ea-chain-node{animation:dme-chain-node 280ms ease-out both;animation-delay:var(--chain-delay,0ms);transition:opacity 220ms}
+.app-shell .ea-page .ea-chain-node:after{transform-origin:left;animation:dme-chain-link 240ms ease-out both;animation-delay:var(--chain-delay,0ms)}
+.app-shell .ea-page [data-path-focus="true"]>[data-path="false"]{opacity:.45!important}
+.app-shell .ea-page [data-path-focus="true"]>[data-path="true"]{opacity:1}
+.app-shell .ea-page .ea-graph-item,.app-shell .ea-page .ea-graph-list>button{transition:opacity 220ms}
+.ea-graph{position:relative;isolation:isolate;overflow:hidden}
+.ea-motion-scan{position:absolute;z-index:0;pointer-events:none;inset:0;background:linear-gradient(180deg,transparent 44%,#62dded 49%,transparent 54%);opacity:.05;transform:translateY(-100%);animation:dme-audit-scan 9s linear infinite}
+.ea-graph>*:not(.ea-motion-scan){position:relative;z-index:1}
+.erp-equipment{display:grid;grid-template-columns:1fr 1.5fr;gap:12px;margin:14px 0}
+.erp-pump{display:flex;align-items:center;gap:14px;min-width:0;padding:14px;background:#063248;border:1px solid #1c6478;border-radius:7px;transition:border-color 300ms}
+.erp-pump[data-warning="true"]{border-color:#b88738}
+.erp-pump svg{width:60px;flex:none;color:#19dfcf}
+.erp-pump[data-warning="true"] svg{color:#edb45b}
+.erp-pump-rotor{transform-box:fill-box;transform-origin:center;animation:erp-rotate var(--pump-duration,3s) linear infinite;animation-play-state:paused}
+.event-replay[data-playing="true"] .erp-pump-rotor{animation-play-state:running}
+.erp-pump strong,.erp-pump small{display:block;font-size:12px}
+.erp-pump small{margin-top:7px;font-size:10px;color:#88bacb}
+.erp-agents{display:grid;grid-template-columns:1fr;gap:5px}
+.erp-agent{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:8px 10px;border:1px solid #164b60;background:#052b40;border-radius:5px;font-size:10px;color:#7fa5b8;transition:background 250ms,border-color 250ms}
+.erp-agent[data-status="analyzing"]{border-color:#18c7d0;color:#92ebee}
+.erp-agent[data-status="complete"]{border-color:#179b86;color:#50eac6}
+.erp-agent small{font-size:9px}
+.erp-historical-card{border:1px solid #1f746e;border-radius:6px;background:#06413d44;padding:14px;margin-top:14px;transition:opacity 240ms}
+.erp-historical-card>small{font-size:10px;color:#659dac}
+.erp-historical-card>strong{display:block;color:#b6f2e4;font-size:14px;margin:9px 0}
+.erp-historical-card>p{font-size:11px;color:#8bbcc7;margin:0;line-height:1.7}
+.erp-historical-card[data-ready="false"]{opacity:.6}
+.erp-historical-card [data-confirmed="true"]{color:#4cf2c7}
+.app-shell .event-replay-controls{flex-wrap:wrap}
+.app-shell .event-replay-controls .erp-reset{background:#082d41;border-color:#226881;color:#a8d4e2}
+.app-shell .event-replay-timeline button{transition:color 220ms,border-color 220ms,background 220ms}
+.app-shell .hr-checks label{transition:color 220ms}
+.app-shell .hr-checks label:has(input:checked){color:#3be6c3}
+@keyframes dme-card-enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes dme-badge-pop{from{opacity:.3;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+@keyframes dme-gauge-draw{from{stroke-dashoffset:100}to{stroke-dashoffset:var(--risk-offset)}}
+@keyframes dme-result-pop{from{opacity:.5;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+@keyframes dme-evidence-target{0%,30%{border-color:#63f0de;background:#074e5155}100%{border-color:#13556b;background:transparent}}
+@keyframes dme-detail-fade{from{opacity:.2;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+@keyframes dme-chain-node{from{opacity:.2;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@keyframes dme-chain-link{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes dme-audit-scan{0%{transform:translateY(-100%)}100%{transform:translateY(100%)}}
+@keyframes erp-rotate{to{transform:rotate(360deg)}}
+@media(max-width:480px){.erp-equipment{grid-template-columns:1fr}.erp-pump{padding:11px}.erp-agents{grid-template-columns:1fr}.dme-risk-gauge{width:80px}.event-replay-controls>div{margin-left:0}.event-replay-controls>span{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.app-shell .dc-page *,.app-shell .ea-page *,.ed-drawer *,.hr-dialog *,.event-replay *{animation:none!important;transition:none!important}.ea-motion-scan{display:none}}

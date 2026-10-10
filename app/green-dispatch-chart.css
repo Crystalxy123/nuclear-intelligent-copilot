@@ -1,0 +1,256 @@
+.gdc-chart {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 3px;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  color: #a8cde5;
+  font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-variant-numeric: tabular-nums;
+  container-name: green-dispatch;
+  container-type: inline-size;
+}
+
+.gdc-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 3px 9px;
+  min-width: 0;
+}
+
+.gdc-power-unit {
+  margin-right: auto;
+  color: #9bc4e1;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.gdc-legend-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 3px 1px;
+  border: 0;
+  border-radius: 3px;
+  color: #a8cde5;
+  background: transparent;
+  font: inherit;
+  font-size: 11.5px;
+  line-height: 1.15;
+  white-space: nowrap;
+  cursor: pointer;
+  opacity: .35;
+}
+
+.gdc-legend-button.gdc-is-visible {
+  opacity: 1;
+}
+
+.gdc-legend-button:not(.gdc-is-visible) span {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+.gdc-legend-button:hover {
+  color: #ecf9ff;
+}
+
+.gdc-legend-button:disabled {
+  cursor: default;
+}
+
+.gdc-legend-button:focus-visible,
+.gdc-svg:focus-visible {
+  outline: 1px solid #69d7ff;
+  outline-offset: 2px;
+}
+
+.gdc-legend-button svg {
+  flex: 0 0 18px;
+}
+
+.gdc-plot {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+}
+
+.gdc-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  border-radius: 2px;
+  touch-action: pan-y;
+  cursor: crosshair;
+  font-family: inherit;
+}
+
+.gdc-svg .gdc-axis-text {
+  fill: #97c5e4;
+  font-family: inherit;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.gdc-svg .gdc-right-axis {
+  fill: #baa95c;
+  font-size: 13px;
+}
+
+.gdc-svg .gdc-axis-caption {
+  font-size: 9px;
+}
+
+.gdc-grid-line {
+  stroke: #115272;
+  stroke-width: .6;
+  stroke-dasharray: 2 2;
+  opacity: .75;
+}
+
+.gdc-axis-line {
+  fill: none;
+  stroke: #5a94b8;
+  stroke-width: 1;
+}
+
+.gdc-series-line {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.gdc-current-line {
+  stroke: #d2e9fa;
+  stroke-width: 1.5;
+  stroke-dasharray: 7 5;
+}
+
+.gdc-current-label {
+  fill: #c3def3;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.gdc-selection-line {
+  stroke: #a4cddd;
+  stroke-width: .75;
+  stroke-dasharray: 2 3;
+}
+
+.gdc-tooltip {
+  position: absolute;
+  z-index: 3;
+  top: 12px;
+  width: 208px;
+  max-width: calc(100% - 16px);
+  box-sizing: border-box;
+  padding: 8px 10px;
+  border: 1px solid #1b6d8c;
+  border-radius: 5px;
+  background: #042236f5;
+  box-shadow: 0 5px 18px #00111b80;
+  color: #c2e0ed;
+  font-size: 10px;
+  line-height: 1.4;
+  pointer-events: none;
+}
+
+.gdc-tooltip strong {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #15445c;
+  color: #e6f4ff;
+  font-size: 11px;
+}
+
+.gdc-tooltip strong span {
+  color: #7bb1cb;
+  font-weight: 400;
+}
+
+.gdc-tooltip > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 3px;
+}
+
+.gdc-tooltip > div > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.gdc-tooltip i {
+  width: 5px;
+  height: 5px;
+  flex: 0 0 5px;
+  border-radius: 50%;
+}
+
+.gdc-tooltip b {
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.gdc-tooltip small {
+  color: #80abc1;
+  font-size: 8px;
+  font-weight: 400;
+}
+
+.gdc-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2px 8px;
+  margin: 0;
+  color: #628ca7;
+  font-size: 10px;
+  line-height: 1.25;
+}
+
+.gdc-caption > span:last-child {
+  color: #8ab8c8;
+}
+
+@media (max-width: 640px) {
+  .gdc-legend { justify-content: flex-start; gap: 1px 7px; }
+  .gdc-power-unit { width: 100%; }
+  .gdc-legend-button { font-size: 10px; }
+  .gdc-tooltip { padding: 6px 7px; }
+  .gdc-tooltip > div { gap: 7px; }
+}
+
+/* Compensate SVG text for the actual chart width, including narrow desktop columns. */
+@container green-dispatch (max-width: 520px) {
+  .gdc-svg .gdc-axis-text,
+  .gdc-svg .gdc-right-axis { font-size: 16px; }
+  .gdc-svg .gdc-axis-caption { font-size: 11px; }
+  .gdc-current-label { font-size: 15px; }
+}
+
+@container green-dispatch (max-width: 360px) {
+  .gdc-svg .gdc-axis-text,
+  .gdc-svg .gdc-right-axis { font-size: 22px; }
+  .gdc-svg .gdc-axis-caption { font-size: 16px; }
+  .gdc-current-label { font-size: 20px; }
+  .gdc-svg .gdc-axis-text[text-anchor="end"] { transform: translateX(4px); }
+  .gdc-svg .gdc-right-axis { transform: translateX(-4px); }
+  .gdc-caption { color: #7fa9bf; }
+}

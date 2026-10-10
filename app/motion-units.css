@@ -1,0 +1,173 @@
+/* Decorative motion for overview and real-time units. Reading values stay untouched. */
+.um-twin-motion {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+}
+.um-twin-motion *, .um-line-flow, .um-trend-halo {
+  pointer-events: none;
+}
+.ru-scene > .um-twin-motion { z-index: 1; }
+.um-scan-band {
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 3%;
+  height: 9%;
+  opacity: 0;
+  border-bottom: 1px solid #80f8ff66;
+  background: linear-gradient(0deg, #29d9ee1f, #31c9ee06 45%, transparent);
+  box-shadow: 0 8px 20px -15px #55f6ff;
+  mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+  animation: um-scan-pass 8.8s ease-in-out infinite;
+}
+.um-energy-ring {
+  position: absolute;
+  left: 19%;
+  bottom: 3.5%;
+  width: 72%;
+  height: 22%;
+  border: 1px solid #39e8f2;
+  border-radius: 50%;
+  opacity: .12;
+  box-shadow: inset 0 0 12px #2dddd310, 0 0 8px #2dddd320;
+  animation: um-ring-pulse 7s ease-out infinite;
+}
+.um-energy-ring-delayed { animation-delay: -3.5s; }
+.um-particles { position: absolute; inset: 0; }
+.um-particles > i {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #bcffff;
+  box-shadow: 0 0 7px 2px #21e7ec66;
+  opacity: 0;
+  animation: um-particle-glint 5.5s ease-in-out infinite;
+}
+.um-particles > i:nth-child(1) { left: 36%; top: 54%; animation-delay: -1.4s; }
+.um-particles > i:nth-child(2) { left: 48%; top: 35%; animation-delay: -3.3s; }
+.um-particles > i:nth-child(3) { left: 58%; top: 24%; animation-delay: -.5s; }
+.um-particles > i:nth-child(4) { left: 71%; top: 66%; animation-delay: -4.1s; }
+.um-particles > i:nth-child(5) { left: 81%; top: 72%; animation-delay: -2.2s; }
+.ov-callout-lines path.um-line-flow,
+.ru-hotspot-lines path.um-line-flow,
+.ru-system-links path.um-line-flow {
+  fill: none;
+  stroke: #c0ffff;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-dasharray: 24 226;
+  opacity: .75;
+  filter: none;
+  animation: um-line-travel 8s linear infinite;
+}
+.ru-hotspot-lines g:nth-child(2) .um-line-flow { animation-delay: -1.6s; }
+.ru-hotspot-lines g:nth-child(3) .um-line-flow { animation-delay: -3.3s; }
+.ru-hotspot-lines g:nth-child(4) .um-line-flow { animation-delay: -4.7s; }
+.ru-hotspot-lines g:nth-child(5) .um-line-flow { animation-delay: -6.2s; }
+.ru-system-links path.um-line-flow { stroke-width: 2; animation-duration: 6s; }
+.ov-equipment::after, .ru-hotspot::after {
+  position: absolute;
+  content: "";
+  inset: -1px;
+  border: 1px solid #68eff7;
+  border-radius: inherit;
+  box-shadow: 0 0 10px #20dcf12b;
+  pointer-events: none;
+  opacity: 0;
+  animation: um-hotspot-breathe 5s ease-in-out infinite;
+}
+.ov-equipment:nth-of-type(2)::after, .ru-hotspot:nth-of-type(2)::after { animation-delay: -1s; }
+.ov-equipment:nth-of-type(3)::after, .ru-hotspot:nth-of-type(3)::after { animation-delay: -2s; }
+.ov-equipment:nth-of-type(4)::after, .ru-hotspot:nth-of-type(4)::after { animation-delay: -3s; }
+.ov-equipment:nth-of-type(5)::after, .ru-hotspot:nth-of-type(5)::after { animation-delay: -4s; }
+.ov-agent-progress > div > i, .ru-agent-progress > div > i {
+  position: relative;
+  overflow: hidden;
+}
+.ov-agent-progress > div > i::after, .ru-agent-progress > div > i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 15%, #edffff99 48%, transparent 80%);
+  animation: um-progress-sheen 5.2s ease-in-out infinite;
+}
+.ov-agent:nth-child(2) .ov-agent-progress > div > i::after,
+.ru-agent:nth-child(2) .ru-agent-progress > div > i::after { animation-delay: -1.7s; }
+.ov-agent:nth-child(3) .ov-agent-progress > div > i::after,
+.ru-agent:nth-child(3) .ru-agent-progress > div > i::after { animation-delay: -3.4s; }
+.ru-page .um-trend-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+  animation: um-trend-reveal 1.6s cubic-bezier(.22,.65,.3,1) backwards;
+}
+.ru-page .um-trend-endpoint {
+  animation: um-endpoint-breathe 2.8s ease-in-out infinite;
+}
+.ru-page .um-trend-halo {
+  opacity: .35;
+  animation: um-halo-breathe 2.8s ease-in-out infinite;
+}
+/* Opacity-only entrances avoid moving labels or changing fixed dialog containing blocks. */
+.ov-kpis > .ov-kpi, .ru-kpis > .ru-kpi {
+  animation: um-panel-enter .55s ease-out backwards;
+}
+.ov-kpis > :nth-child(2), .ru-kpis > :nth-child(2) { animation-delay: .045s; }
+.ov-kpis > :nth-child(3), .ru-kpis > :nth-child(3) { animation-delay: .09s; }
+.ov-kpis > :nth-child(4), .ru-kpis > :nth-child(4) { animation-delay: .135s; }
+.ov-kpis > :nth-child(5), .ru-kpis > :nth-child(5) { animation-delay: .18s; }
+.ov-main > .ov-panel, .ru-main-grid > .ru-panel { animation: um-panel-enter .65s .12s ease-out backwards; }
+.ov-bottom > .ov-panel, .ru-middle-grid > .ru-panel { animation: um-panel-enter .65s .2s ease-out backwards; }
+.ru-bottom-grid > .ru-panel { animation: um-panel-enter .65s .27s ease-out backwards; }
+.ru-system-view { animation: um-panel-enter .35s ease-out; }
+.ru-page[data-demo-playing="false"] .um-twin-motion *,
+.ru-page[data-demo-playing="false"] .um-line-flow,
+.ru-page[data-demo-playing="false"] .ru-hotspot::after,
+.ru-page[data-demo-playing="false"] .ru-agent-progress > div > i::after,
+.ru-page[data-demo-playing="false"] .um-trend-endpoint,
+.ru-page[data-demo-playing="false"] .um-trend-halo {
+  animation-play-state: paused !important;
+}
+@keyframes um-scan-pass {
+  0%, 10% { opacity: 0; transform: translateY(-110%); }
+  15% { opacity: .65; }
+  72% { opacity: .5; }
+  85%, 100% { opacity: 0; transform: translateY(1200%); }
+}
+@keyframes um-ring-pulse {
+  0% { transform: scale(.82); opacity: 0; }
+  20% { opacity: .27; }
+  85%, 100% { transform: scale(1.1); opacity: 0; }
+}
+@keyframes um-particle-glint {
+  0%, 35%, 100% { opacity: 0; transform: translateY(3px); }
+  50% { opacity: .9; }
+  75% { opacity: 0; transform: translateY(-9px); }
+}
+@keyframes um-line-travel { to { stroke-dashoffset: -1000; } }
+@keyframes um-hotspot-breathe { 0%, 100% { opacity: .02; } 50% { opacity: .48; } }
+@keyframes um-progress-sheen {
+  0%, 18% { transform: translateX(-120%); opacity: 0; }
+  35% { opacity: .85; }
+  65%, 100% { transform: translateX(120%); opacity: 0; }
+}
+@keyframes um-trend-reveal { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: 0; } }
+@keyframes um-endpoint-breathe { 0%, 100% { opacity: .65; } 50% { opacity: 1; } }
+@keyframes um-halo-breathe { 0%, 100% { opacity: .1; stroke-width: .6; } 50% { opacity: .75; stroke-width: 1.3; } }
+@keyframes um-panel-enter { from { opacity: .12; } to { opacity: 1; } }
+@media (max-width: 700px) {
+  .um-scan-band { left: 0; right: 0; animation-duration: 10.5s; }
+  .um-energy-ring { left: 8%; width: 85%; }
+  .um-particles > i:nth-child(even) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .um-twin-motion { display: none; }
+  .ov-dashboard *, .ov-dashboard *::before, .ov-dashboard *::after,
+  .ru-page *, .ru-page *::before, .ru-page *::after { animation: none !important; }
+  .um-line-flow, .um-trend-halo, .ov-equipment::after, .ru-hotspot::after,
+  .ov-agent-progress > div > i::after, .ru-agent-progress > div > i::after { display: none; }
+}

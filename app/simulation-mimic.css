@@ -1,0 +1,79 @@
+.sim-mimic {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: #001825;
+}
+
+.sim-mimic > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.sim-mimic text {
+  fill: #c5e4f3;
+  font-size: 13px;
+  letter-spacing: .3px;
+}
+
+.sim-mimic .sim-mimic-industrial {
+  fill: none;
+  stroke: #137caa;
+  stroke-width: .7px;
+  opacity: .18;
+}
+
+.sim-mimic .sim-mimic-label {
+  fill: #84acc4;
+  font-size: 12px;
+}
+
+.sim-mimic .sim-mimic-value {
+  fill: #e4f5ff;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: .25px;
+}
+
+.sim-mimic .sim-mimic-unit {
+  fill: #b3d3e6;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.sim-mimic .sim-mimic-readout path {
+  fill: none;
+  stroke: #377794;
+  stroke-width: 1px;
+}
+
+.sim-mimic .sim-mimic-small {
+  fill: #b3d7eb;
+  font-size: 12px;
+}
+
+.sim-mimic .sim-mimic-micro {
+  fill: #77a7c0;
+  font-size: 10px;
+  letter-spacing: .1px;
+}
+
+.sim-mimic .sim-mimic-equipment-id {
+  fill: #9bddf0;
+  font-size: 10px;
+  letter-spacing: 1px;
+  opacity: .85;
+}
+
+.sim-mimic .is-ok {
+  fill: #52eac8;
+}
+
+.sim-mimic .is-warning {
+  fill: #ffb384;
+}

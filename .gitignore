@@ -1,0 +1,27 @@
+.vinext
+.next
+dist
+node_modules
+.wrangler
+.DS_Store
+*.log
+*.tsbuildinfo
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+*.pem
+*.key
+.aws/
+.codex/
+.agents/
+
+# Generated verification output and local source materials
+/artifacts/
+/pctran_new/
+/素材库/
+__pycache__/
+*.pyc

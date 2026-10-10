@@ -1,0 +1,82 @@
+/* Presentation only: measurements and scenario timing remain unchanged. */
+.app-shell .demo-motion-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  flex: none;
+  height: 32px;
+  padding: 0 9px;
+  border: 1px solid #176482;
+  border-radius: 5px;
+  background: #06314b99;
+  color: #8bb3c9;
+  font: inherit;
+  font-size: 11px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+.app-shell .demo-motion-toggle[aria-pressed="true"] { color: #55eee0; border-color: #078a99; }
+.app-shell .demo-motion-toggle:hover { background: #075370; border-color: #29d7d9; }
+.app-shell .demo-motion-toggle:disabled { cursor: default; opacity: .65; }
+.app-shell .demo-motion-toggle:focus-visible { outline: 2px solid #60e9f4; outline-offset: 3px; }
+.demo-motion-toggle svg { width: 16px; height: 16px; flex: none; }
+.demo-motion-toggle svg path { transform-origin: center 17px; animation: demo-equalizer 1.8s ease-in-out infinite alternate; }
+.demo-motion-toggle svg path:nth-child(2) { animation-delay: -.6s; }
+.demo-motion-toggle svg path:nth-child(3) { animation-delay: -1.2s; }
+
+.app-shell .main-content { animation: demo-page-enter .36s ease-out backwards; }
+.app-shell .sidebar nav button { transition: background .2s, border-color .2s, color .2s; }
+.app-shell .sidebar nav button > svg { transition: transform .2s ease-out, color .2s; }
+.app-shell .sidebar nav button:hover > svg { transform: translateX(2px); }
+.app-shell .sidebar nav button.active > svg { animation: demo-nav-light 3.6s ease-in-out infinite; }
+.app-shell .top-state .mini-dot,
+.app-shell .topbar .pulse-dot,
+.app-shell .system-health > span > i { animation: demo-status-light 2.8s ease-in-out infinite; }
+.app-shell :is(.ru-dialog,.dc-dialog,.sim-dialog,.gw-dialog,.cc-modal,.ov-dialog) {
+  animation: demo-dialog-enter .22s ease-out both;
+}
+
+@keyframes demo-page-enter { from { opacity: .35; } to { opacity: 1; } }
+@keyframes demo-dialog-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes demo-status-light { 0%,100% { opacity: 1; } 50% { opacity: .5; } }
+@keyframes demo-nav-light { 0%,100% { opacity: 1; } 50% { opacity: .7; } }
+@keyframes demo-equalizer { from { transform: scaleY(.5); } to { transform: scaleY(1); } }
+
+@media (max-width: 1440px) {
+  .app-shell .demo-motion-toggle { width: 30px; padding: 0; }
+  .demo-motion-toggle > span { display: none; }
+}
+@media (max-width: 700px) {
+  .app-shell .demo-motion-toggle { width: 26px; height: 28px; margin-right: 4px; }
+}
+@media (max-width: 420px) {
+  .app-shell .topbar .plant-picker { flex: 1; min-width: 0; }
+  .app-shell .topbar .unit-select { width: 100%; min-width: 0; max-width: 100%; gap: 7px; }
+  .app-shell .topbar .unit-select > div { min-width: 0; }
+  .app-shell .topbar .unit-select strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .app-shell .top-actions { flex: none; padding-left: 6px; padding-right: 4px; gap: 5px; }
+  .app-shell .demo-motion-toggle { margin-right: 0; }
+  .app-shell:is(.decision-mode,.simulation-mode) .main-content { overflow-x: clip; }
+}
+
+/* A single switch also covers pre-existing CSS animations, including loading rings. */
+.app-shell[data-motion="paused"],
+.app-shell[data-motion="paused"] *,
+.app-shell[data-motion="paused"] *::before,
+.app-shell[data-motion="paused"] *::after {
+  animation-play-state: paused !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+body:has(.app-shell[data-motion="paused"])::before {
+  background-image: linear-gradient(rgba(4,20,21,.95), rgba(4,20,21,.97)), url('/assets/dashboard-background.png');
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-shell, .app-shell *, .app-shell *::before, .app-shell *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

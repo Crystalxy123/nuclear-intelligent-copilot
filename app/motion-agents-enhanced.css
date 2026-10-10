@@ -1,0 +1,58 @@
+/* State motion: each stage and its completed connection is driven by the shared event. */
+.ap-collaboration{position:relative;display:flex;flex:none;min-height:216px;margin:0 10px;border-bottom:1px solid #124d65}
+.ap-collaboration .ap-agents{width:72%;gap:6px;padding:9px 0;position:relative;z-index:1;grid-template-rows:repeat(3,minmax(60px,1fr))}
+.ap-collaboration .ap-agent{position:relative;overflow:hidden;min-height:60px;padding:7px;gap:8px;transition:border-color .24s,background .24s}
+.ap-collaboration .ap-agent header{gap:4px;align-items:baseline;line-height:1.4}
+.ap-collaboration .ap-agent header strong{font-size:12px}.ap-collaboration .ap-agent header span{font-size:10px}
+.ap-collaboration .ap-stage-copy{font-size:11px;line-height:1.4;min-height:14px;margin:3px 0 0;animation:agent-stage-in .18s ease-out both}
+.ap-collaboration .ap-track{margin-top:5px;height:2px}.ap-collaboration .ap-track i{transition:width .45s ease-out}
+.ap-collaboration .ap-icon{width:26px;height:26px;border-radius:50%;position:relative;isolation:isolate;font-size:15px}
+.ap-agent[data-active=true]{border-color:#2b8c9d;background:#063747}
+.ap-agent[data-active=true]::after{content:"";position:absolute;inset:0;width:40%;pointer-events:none;background:linear-gradient(90deg,transparent,#99fff51a,transparent);animation:agent-card-scan 2.4s linear infinite}
+.ap-agent[data-active=true] .ap-icon::before{content:"";position:absolute;inset:-4px;border:1.5px solid transparent;border-top-color:#5bdeed;border-right-color:#40a5b64d;border-radius:50%;animation:agent-arc-turn 2.6s linear infinite}
+.ap-agent[data-stage=complete]{border-color:#248971;background:#063b3c}
+.ap-collaboration .ap-result p{animation:none}.ap-check{display:block;animation:agent-complete-check .25s ease-out both}
+.ap-convergence{position:absolute;inset:0 0 0 72%;pointer-events:none;display:flex;align-items:center;justify-content:flex-end}
+.ap-convergence>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ap-link-base,.ap-result-link{fill:none;stroke-width:1.5;stroke-linecap:round;vector-effect:non-scaling-stroke}.ap-link-base{stroke:#1a4b61}.ap-result-link{stroke:#50e6c7;stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset .32s ease-out;opacity:0}.ap-result-link[data-connected=true]{stroke-dashoffset:0;opacity:1}
+.ap-hub{position:relative;width:78px;min-height:75px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:1px solid #34758c;border-radius:8px;background:#052b3e;color:#97c1d6;transition:border-color .24s,background .24s}
+.ap-hub>span{font-size:14px;color:#4ccee6}.ap-hub>small{font-size:9px}.ap-hub>strong{font-size:12px;color:#d9edf5;white-space:nowrap}.ap-hub>em{font-size:8px;font-style:normal;color:#86b7c6;white-space:nowrap}
+.ap-collaboration[data-complete=true] .ap-hub{border-color:#4ce8c5;background:#07453f}.ap-collaboration[data-complete=true] .ap-hub>strong,.ap-collaboration[data-complete=true] .ap-hub>span{color:#6bffce}.ap-collaboration[data-complete=true]:not([data-restored=true]) .ap-hub{animation:agent-complete-check .28s ease-out both}
+.ap-collaboration[data-restored=true] .ap-check,.ap-collaboration[data-restored=true] .ap-stage-copy{animation:none}
+/* Ambient scan belongs to the analysis panel, separate from card processing. */
+.cc-judgment>.cc-evidence-graph::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 47%,#5cc9fa0e 50%,transparent 53%);pointer-events:none;transform:translateY(-65%);animation:agent-panel-scan 8s linear infinite}
+.cc-reply-paragraph{margin:0}.cc-reply-paragraph+.cc-reply-paragraph{margin-top:8px}.cc-reply-new{animation:agent-reply-in .16s ease-out both}
+.cc-thinking{display:flex;align-items:center;gap:5px;min-height:23px;color:#87c3d9;font-size:11px}.cc-thinking>span{margin-right:2px}.cc-thinking>i{width:4px;height:4px;border-radius:50%;background:#57d8ed;animation:agent-thinking-dot .9s ease-in-out infinite}.cc-thinking>i:nth-of-type(2){animation-delay:.15s}.cc-thinking>i:nth-of-type(3){animation-delay:.3s}
+.cc-page .cc-evidence-token.cc-token-highlight{background:#105b64;color:#affff0!important;border-radius:3px;animation:agent-token-highlight .4s ease-out}
+.cc-page .cc-context-questions>button:disabled{opacity:.48;cursor:default}
+/* Energy motion: reveal once, then retain the curve when data or tabs change. */
+.green-chart-reveal,.energy-chart-reveal{transform-box:fill-box;transform-origin:left center}
+.gdc-chart[data-reveal=animate] .green-chart-reveal,.ew-forecast[data-reveal=animate] .energy-chart-reveal{animation:agent-chart-reveal .95s cubic-bezier(.2,.5,.3,1) both}
+.gdc-chart[data-reveal=waiting] .green-chart-reveal,.ew-forecast[data-reveal=waiting] .energy-chart-reveal{transform:scaleX(0)}
+.gdc-window-active{animation:agent-window-selected .35s ease-out both}
+.gw-workspace[data-window-active=true] .gw-metric-icon{animation:agent-benefit-icon .28s ease-out both}.gw-workspace[data-window-active=true] .gw-impact-metrics>button:nth-child(2) .gw-metric-icon{animation-delay:.15s}.gw-workspace[data-window-active=true] .gw-impact-metrics>button:nth-child(3) .gw-metric-icon{animation-delay:.3s}
+.energy-flow-diagram{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:54px;padding:5px 13px;margin:8px 12px 0;border:1px solid #175261;border-radius:6px;background:linear-gradient(110deg,#082e40,#062f34);flex:none}
+.energy-flow-diagram>svg{position:absolute;left:16%;top:0;width:68%;height:100%;z-index:-1;overflow:hidden}.energy-flow-source,.energy-flow-grid{display:flex;align-items:center;gap:5px;color:#9ed5e1;background:#072f3b;padding:3px}.energy-flow-source>span,.energy-flow-grid>span{font-size:18px;color:#40d5ef}.energy-flow-source>div,.energy-flow-grid>div{display:flex;flex-direction:column;gap:2px}.energy-flow-diagram strong{font-size:11px;line-height:1.3;white-space:nowrap}.energy-flow-diagram small{font-size:8px;color:#6b9aa7;line-height:1.2}.energy-flow-green>span{color:#4cf0b9}.energy-flow-grid{border:1px solid #2c8596;border-radius:5px;padding:5px 9px}.energy-flow-grid>span{font-size:21px}
+.energy-flow-base{fill:none;stroke:#1b6f7e;stroke-width:1;vector-effect:non-scaling-stroke}.energy-flow-stream{fill:none;stroke-width:2;stroke-dasharray:3 26;vector-effect:non-scaling-stroke;animation:agent-energy-flow 4s linear infinite}.energy-flow-primary{stroke:#66dced}.energy-flow-renewable{stroke:#53e1b0;animation-duration:4.6s}.energy-flow-diagram[data-optimized=true] .energy-flow-renewable{animation-duration:3.2s;stroke:#95ffcf}
+.gw-workspace .gw-advice{min-height:335px}.gw-workspace .gw-actions{margin-top:9px}.ew-forecast-panel>.energy-flow-diagram{margin:0 18px 8px;min-height:51px}.gw-workspace{grid-template-rows:minmax(350px,1.25fr) minmax(335px,1fr)}
+.cc-tabpanel[hidden] *,.cc-tabpanel[hidden] *::before,.cc-tabpanel[hidden] *::after{animation-play-state:paused!important}
+@keyframes agent-stage-in{from{opacity:.25;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+@keyframes agent-card-scan{from{transform:translateX(-110%)}to{transform:translateX(360%)}}
+@keyframes agent-arc-turn{to{transform:rotate(360deg)}}
+@keyframes agent-complete-check{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+@keyframes agent-panel-scan{from{transform:translateY(-65%)}to{transform:translateY(65%)}}
+@keyframes agent-thinking-dot{0%,70%,100%{opacity:.3;transform:translateY(0)}35%{opacity:1;transform:translateY(-2px)}}
+@keyframes agent-reply-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+@keyframes agent-token-highlight{from{background:#32d3bf55}to{background:#105b64}}
+@keyframes agent-chart-reveal{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes agent-window-selected{from{opacity:.2}to{opacity:1}}
+@keyframes agent-benefit-icon{from{transform:scale(.94);opacity:.6}to{transform:scale(1);opacity:1}}
+@keyframes agent-energy-flow{to{stroke-dashoffset:-116}}
+@media(max-width:1200px){.ap-collaboration .ap-agent{gap:6px;padding:6px}.ap-collaboration .ap-icon{width:22px;height:22px;font-size:13px}.ap-collaboration .ap-agent header strong{font-size:9px}.ap-collaboration .ap-agent header span{font-size:8px}.ap-hub{width:68px}.ap-hub>strong{font-size:11px}.ap-hub>em{font-size:7px}.ap-collaboration .ap-stage-copy{font-size:9px}}
+@media(max-width:960px){.ap-collaboration .ap-agents{width:72%;min-height:226px}.ap-collaboration .ap-agent header strong{font-size:12px}.ap-collaboration .ap-agent header span{font-size:10px}.ap-collaboration .ap-stage-copy{font-size:11px}.ap-collaboration .ap-icon{width:30px;height:30px;font-size:17px}.ap-hub{width:90px;min-height:88px}.ap-hub>strong{font-size:14px}.ap-hub>em{font-size:9px}.ap-hub>small{font-size:11px}}
+@media(max-width:420px){.ap-collaboration{margin:0 8px;min-height:229px}.ap-collaboration .ap-agents{width:69%}.ap-convergence{left:69%}.ap-collaboration .ap-agent header{display:block}.ap-collaboration .ap-agent header span{display:none}.ap-collaboration .ap-agent header strong{font-size:10px}.ap-collaboration .ap-stage-copy{font-size:9px}.ap-collaboration .ap-icon{width:23px;height:23px;font-size:14px}.ap-hub{width:67px;min-height:84px}.ap-hub>strong{font-size:11px}.ap-hub>small{font-size:9px}.ap-hub>em{font-size:7px}.energy-flow-diagram{padding:5px 6px;gap:5px}.energy-flow-source,.energy-flow-grid{gap:3px}.energy-flow-diagram strong{font-size:9px}.energy-flow-diagram small{font-size:7px}.energy-flow-source>span{font-size:14px}.energy-flow-grid{padding:5px}.energy-flow-grid>span{font-size:16px}.gw-workspace .gw-advice{min-height:411px}.gw-workspace{grid-template-rows:auto auto}}
+@media(prefers-reduced-motion:reduce){.ap-collaboration *,.ap-collaboration *::after,.ap-collaboration *::before,.cc-judgment>.cc-evidence-graph::after,.cc-thinking>i,.cc-reply-new,.cc-token-highlight,.green-chart-reveal,.energy-chart-reveal,.gdc-window-active,.gw-metric-icon,.energy-flow-stream{animation:none!important;transition:none!important}.green-chart-reveal,.energy-chart-reveal{transform:none!important}.energy-flow-stream,.cc-judgment>.cc-evidence-graph::after{display:none}}
+/* The plot now measures its own SVG viewBox; do not apply legacy 740px text compensation. */
+.gw-workspace .gdc-svg .gdc-axis-text,.gw-workspace .gdc-svg .gdc-right-axis{font-size:11px;transform:none}
+.gw-workspace .gdc-svg .gdc-axis-caption{font-size:8px}
+.gw-workspace .gdc-svg .gdc-current-label{font-size:10px}

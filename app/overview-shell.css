@@ -1,0 +1,88 @@
+/* Overview-only shell follows the control-room reference without changing workspaces. */
+.overview-mode .sidebar{width:236px;background:radial-gradient(ellipse at 20% 28%,#00274166,transparent 65%),#001729}
+.overview-mode .main-shell{width:calc(100% - 236px);margin-left:236px;background:radial-gradient(ellipse at 70% 0%,#00325b44,transparent 55%),#00182a}
+.overview-mode .main-content{padding:14px 15px 14px 14px}
+.overview-mode .brand{height:78px;min-height:78px;padding:0 23px;gap:17px}
+.overview-mode .brand strong{font-size:24px;letter-spacing:.04em}
+.overview-mode .brand small{font-size:11px;letter-spacing:.03em}
+.overview-mode .brand-mark{width:43px;height:43px;transform:none}
+.overview-mode .brand-mark::before,.overview-mode .brand-mark::after{height:43px;width:24px}
+.overview-mode .brand-mark span:nth-child(1){left:17px;top:17px}
+.overview-mode .sidebar nav{padding:18px 13px 12px 8px;gap:7px}
+.overview-mode .sidebar nav button{height:53px;gap:21px;padding-left:27px}
+.overview-mode .sidebar nav button.active{padding-left:24px;border-color:#009ac5;box-shadow:inset 8px 0 28px #00c9ff16,0 0 14px #00c9ff0d}
+.overview-mode .sidebar nav button span{font-size:16px}
+.overview-mode .sidebar nav button em{display:none}
+.overview-mode .side-foot{display:none}
+.overview-mode .topbar{height:78px;padding:0 25px 0 20px;background:linear-gradient(100deg,#032741b8,#002344e6 65%,#001a32)}
+.overview-mode .unit-select{height:54px;padding:0 13px 0 10px;gap:11px;border:1px solid #075277;border-radius:7px;background:linear-gradient(130deg,#063556ad,#052b4877)}
+.overview-mode .unit-select>div{display:flex;flex-direction:column-reverse;gap:3px}
+.overview-mode .unit-select small{font-size:11px;margin:0}
+.overview-mode .unit-select strong{font-size:16px}
+.overview-mode .chev{margin-left:10px}
+.ov-scene-cube{display:grid;place-items:center;width:34px;height:35px;border:1px solid #045171;border-radius:7px;background:#013653;color:#04e5f5;box-shadow:inset 0 0 20px #00c6ed16;flex:none}
+.ov-scene-cube svg{width:22px;height:22px;filter:drop-shadow(0 0 5px #00d2f470)}
+.overview-mode .top-state{margin-left:19px;gap:22px}
+.overview-mode .top-state .badge{height:43px;font-size:14px;border:1px solid #00c4c4;padding:0 13px;color:#00e2d0;background:#003e4644;box-shadow:inset 0 0 18px #00c2c412}
+.overview-mode .top-state .mini-dot{background:#00e4d0}
+.overview-mode .safe-days{border-left:1px solid #086691;padding-left:22px;font-size:15px}
+.overview-mode .safe-days b{font-size:22px}
+.overview-mode .safe-days small{display:block;color:#90bcdf;margin-top:5px;font-size:12px;letter-spacing:.025em}
+.overview-mode .top-actions{border-left:1px solid #075984;margin-left:auto;padding-left:16px;gap:15px}
+.overview-mode .icon-btn{width:35px;height:42px;border-color:#004472;box-shadow:none;background:#052b4a}
+.overview-mode .icon-btn i{background:#fc334f;border-color:#ff6580}
+.overview-mode .clock{padding:0 17px 0 9px}
+.overview-mode .clock strong{font-size:19px}
+.overview-mode .clock small{font-size:12px}
+.overview-mode .avatar{background:linear-gradient(135deg,#1875ee,#2150b9)}
+.ov-sidebar-extra{margin-top:auto;padding:0 13px 21px;flex:none}
+.ov-side-decoration{color:#007dab;margin:0 -1px 23px}
+.ov-side-decoration>svg{display:block;width:100%;height:101px;filter:drop-shadow(0 0 5px #00c8ff16)}
+.ov-side-decoration>p{color:#6fadd5;font-size:13px;letter-spacing:.05em;margin:10px 8px 5px}
+.ov-side-decoration>small{font-size:9px;color:#5189b0;display:block;margin-left:8px;letter-spacing:.01em}
+.ov-side-health{height:114px;border:1px solid #075373;border-top-color:#02b1d3;border-radius:7px;background:linear-gradient(130deg,#032f4188,#0130494d);display:flex;align-items:center;padding:10px 8px;gap:9px}
+.ov-side-ring{position:relative;width:89px;height:89px;flex:none;display:grid;place-items:center}
+.ov-side-ring>svg{position:absolute;inset:0;filter:drop-shadow(0 0 6px #00dfc777)}
+.ov-side-ring>strong{font-size:20px;color:#00e5d4;font-weight:600}
+.ov-side-ring>strong small{font-size:12px;margin-left:1px}
+.ov-side-health dl{margin:0;flex:1;font-size:9px;white-space:nowrap}
+.ov-side-health dl>div{display:flex;align-items:center;justify-content:space-between;margin:9px 0;gap:6px}
+.ov-side-health dt{color:#a0cbea;display:flex;align-items:center;gap:4px}
+.ov-side-health dt i{display:grid;place-items:center;width:10px;height:10px;border-radius:50%;font-size:7px;font-style:normal;color:#012632;background:#03d9c6}
+.ov-side-health dd{margin:0;color:#00e1c2;font-size:9px}
+.ov-side-version{display:block;color:#699cc4;font-size:12px;margin:14px 8px 0}
+.ov-process-heading{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:3px 10px 0}
+.ov-process-heading strong{font-size:16px;color:#e0efff}
+.ov-process-heading span{font-size:11px;color:#78b1cd}
+.ov-process-grid{stroke:#075477;stroke-width:.6;opacity:.55}
+.ov-process-vessel>rect,.ov-process-vessel>path:first-child{fill:url(#ov-vessel);stroke:#36daeb;stroke-width:1.5}
+.ov-process-vessel>path:not(:first-child){fill:none;stroke:#43dcea;stroke-width:1.6}
+.ov-process-vessel text,.ov-process-pump text{fill:#c7e6ff;stroke:none;text-anchor:middle;font-size:15px}
+.ov-process-vessel .ov-process-reading,.ov-process-pump .ov-process-reading{font-size:13px;fill:#3fe7f4}
+.ov-process-pump>circle{fill:#073a55;stroke:#49e7ec;stroke-width:2}
+.ov-process-pump>path{fill:#03c9d4;stroke:none}
+.ov-flow{fill:none;stroke-width:4;stroke-linejoin:round;stroke-dasharray:11 5;animation:ov-flow-travel 3s linear infinite}
+.ov-flow-primary{stroke:#15d7e4}.ov-flow-steam{stroke:#efbd60}.ov-flow-return{stroke:#59a6f3}.ov-flow-cooling{stroke:#06cdb5}
+.ov-flow-label{fill:#89b8d4;font-size:12px;text-anchor:middle}
+.ov-process-links{display:flex;gap:7px;width:100%;flex-wrap:wrap;justify-content:center;padding:0 8px 5px}
+.ov-process-links button{font:inherit;font-size:11px;color:#a2d7f1;background:#043654;border:1px solid #07597d;border-radius:4px;padding:6px 9px;cursor:pointer}
+.ov-process-links button:hover{color:#fff;border-color:#04cdea}.ov-process-links button span{margin-left:12px;color:#08dfea}
+@keyframes ov-flow-travel{to{stroke-dashoffset:-64}}
+@media(min-width:1181px) and (max-width:1500px){
+.overview-mode .sidebar{width:214px}.overview-mode .main-shell{margin-left:214px;width:calc(100% - 214px)}
+.overview-mode .brand{padding:0 18px;gap:13px}.overview-mode .brand strong{font-size:23px}.overview-mode .brand small{font-size:10px}
+.overview-mode .sidebar nav button{padding-left:23px;gap:16px}.overview-mode .sidebar nav button.active{padding-left:20px}.overview-mode .sidebar nav button span{font-size:15px}
+.overview-mode .unit-select strong{font-size:14px}.overview-mode .unit-select{gap:8px}.overview-mode .topbar{padding-right:16px;padding-left:14px}.overview-mode .top-state{margin-left:15px;gap:15px}.overview-mode .safe-days{padding-left:15px;font-size:13px}.overview-mode .safe-days b{font-size:19px}.overview-mode .top-actions{gap:10px;padding-left:11px}.overview-mode .clock{padding-right:11px;padding-left:3px}.overview-mode .operator small{font-size:10px}.ov-side-health{gap:5px;padding:8px 5px}.ov-side-ring{width:75px;height:75px}.ov-side-ring>strong{font-size:18px}.ov-side-health dl>div{gap:4px}
+}
+@media(max-height:840px) and (min-width:1181px){.ov-side-decoration>svg{height:64px}.ov-side-decoration{margin-bottom:14px}.ov-side-health{height:98px}.ov-sidebar-extra{padding-bottom:14px}.overview-mode .sidebar nav{gap:3px}.overview-mode .sidebar nav button{height:48px}}
+@media(max-width:1180px){.overview-mode .sidebar{width:76px}.overview-mode .main-shell{width:calc(100% - 76px);margin-left:76px}.overview-mode .brand{padding:0 16px}.overview-mode .sidebar nav{padding:18px 10px}.overview-mode .sidebar nav button,.overview-mode .sidebar nav button.active{padding:0;justify-content:center}.overview-mode .sidebar nav button span,.ov-sidebar-extra{display:none}.overview-mode .topbar{padding:0 15px}.overview-mode .unit-select strong{font-size:14px}.overview-mode .safe-days{display:none}.overview-mode .top-actions{border:0}.overview-mode .top-state{margin-left:16px}.overview-mode .main-content{padding:12px}}
+@media(max-width:880px){.overview-mode .topbar,.overview-mode .brand{height:70px;min-height:70px}.overview-mode .top-state{display:none}.overview-mode .top-actions{gap:10px}.overview-mode .unit-select{height:49px}.overview-mode .clock{display:none}}
+@media(max-width:620px){.overview-mode .sidebar{width:58px}.overview-mode .main-shell{width:calc(100% - 58px);margin-left:58px}.overview-mode .brand{padding:0 11px;height:65px;min-height:65px}.overview-mode .brand-mark{width:35px;height:35px}.overview-mode .brand-mark::before,.overview-mode .brand-mark::after{height:36px;width:18px}.overview-mode .brand-mark span:nth-child(1){left:13px;top:13px}.overview-mode .sidebar nav{padding:14px 5px;gap:5px}.overview-mode .sidebar nav button{height:47px}.overview-mode .topbar{height:65px;padding:0 10px;min-height:65px}.overview-mode .unit-select{height:44px;padding:0 8px;gap:7px}.overview-mode .unit-select strong{font-size:10px;white-space:nowrap}.overview-mode .unit-select small{font-size:8px}.overview-mode .chev{font-size:17px;margin-left:2px}.ov-scene-cube{width:23px;height:27px}.ov-scene-cube svg{width:17px;height:17px}.overview-mode .top-actions{padding-left:6px}.overview-mode .icon-btn{width:27px;height:32px}.overview-mode .main-content{padding:10px 8px}.ov-process-heading{min-width:500px}.ov-process-links{min-width:500px}}
+/* Keep the flow diagram and its device controls inside the selected view. */
+.ov-process{display:flex;flex-direction:column;align-items:stretch;gap:10px;height:100%;padding:18px 22px;overflow:auto}
+.ov-process-heading{flex:none;padding:0;min-height:25px}
+.ov-process-heading h3{margin:0;font-size:16px;color:#e0efff}
+.ov-process-heading p{margin:0;font-size:11px;color:#78b1cd}
+.ov-process>svg{flex:1 1 0;min-height:0;height:auto;max-height:none}
+.ov-process-links{flex:none;padding:0}
+@media(max-width:700px){.ov-process{padding:14px 12px;align-items:flex-start}.ov-process-heading{min-width:500px}.ov-process>svg{width:560px;min-width:560px;min-height:225px;flex:1 0 225px}.ov-process-links{width:560px;min-width:560px;justify-content:flex-start;gap:6px}.ov-process-links button{font-size:10px;padding:5px 7px}.ov-process-links button span{margin-left:5px}}

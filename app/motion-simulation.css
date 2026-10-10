@@ -1,0 +1,123 @@
+/* Decorative motion only: model values and simulation time remain unchanged. */
+.sim-mimic .sim-motion-flow {
+  --sim-flow-offset: 0px;
+  --sim-dash-step: -18px;
+  animation: sim-fluid-travel var(--sim-primary-duration, 1.1s) linear infinite paused;
+  pointer-events: none;
+}
+
+.sim-mimic .sim-motion-steam {
+  --sim-dash-step: -21px;
+  animation-duration: var(--sim-steam-duration, 1.2s);
+}
+
+.sim-mimic .sim-motion-feed {
+  --sim-dash-step: -22px;
+  animation-duration: var(--sim-feed-duration, 1.5s);
+}
+
+.sim-mimic .sim-motion-injection {
+  --sim-dash-step: -9px;
+  animation-duration: var(--sim-feed-duration, 1.5s);
+}
+
+.sim-mimic .sim-motion-pump {
+  transform-box: view-box;
+  transform-origin: 0 0;
+  animation: sim-pump-revolution var(--sim-pump-duration, 1.55s) linear infinite paused;
+  pointer-events: none;
+}
+
+.sim-mimic .sim-motion-water {
+  animation: sim-surface-ripple 3.8s ease-in-out infinite alternate paused;
+  pointer-events: none;
+}
+
+.sim-mimic .sim-motion-bubble {
+  animation: sim-bubble-rise var(--sim-bubble-duration, 5.5s) linear var(--sim-bubble-delay, 0s) infinite paused;
+  pointer-events: none;
+}
+
+.sim-mimic .sim-motion-turbine-light {
+  animation: sim-generator-glow 2.6s ease-in-out infinite alternate paused;
+  pointer-events: none;
+}
+
+.sim-mimic[data-running="true"][data-rcp-running="true"] .sim-motion-primary,
+.sim-mimic[data-running="true"][data-rcp-running="true"] .sim-motion-pump,
+.sim-mimic[data-running="true"][data-steam-flow="true"] .sim-motion-steam,
+.sim-mimic[data-running="true"][data-steam-flow="true"] .sim-motion-turbine-light,
+.sim-mimic[data-running="true"][data-feed-flow="true"] .sim-motion-feed,
+.sim-mimic[data-running="true"][data-core-wet="true"] .sim-motion-bubble,
+.sim-mimic[data-running="true"] .sim-motion-water[data-wet="true"],
+.sim-mimic[data-running="true"] .sim-motion-injection {
+  animation-play-state: running;
+}
+
+.sim-mimic[data-core-wet="false"] .sim-motion-bubble,
+.sim-mimic .sim-motion-water[data-wet="false"] {
+  visibility: hidden;
+}
+
+.sim-page .sim-motion-trend-halo {
+  animation: sim-trend-breathe 2.8s ease-in-out infinite alternate paused;
+  pointer-events: none;
+}
+
+.sim-page[data-sim-running="true"] .sim-motion-trend-halo {
+  animation-play-state: running;
+}
+
+.sim-page[data-sim-running="true"] .sim-motion-trend-point {
+  transition: cx 220ms linear, cy 220ms linear;
+}
+
+.sim-page .sim-event-row {
+  animation: sim-event-arrive 280ms ease-out both;
+}
+
+@keyframes sim-fluid-travel {
+  from { stroke-dashoffset: var(--sim-flow-offset, 0px); }
+  to { stroke-dashoffset: calc(var(--sim-flow-offset, 0px) + var(--sim-dash-step, -18px)); }
+}
+
+@keyframes sim-pump-revolution {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes sim-surface-ripple {
+  from { transform: translateY(-.6px); opacity: .27; }
+  to { transform: translateY(.6px); opacity: .46; }
+}
+
+@keyframes sim-bubble-rise {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: .3; }
+  80% { opacity: .22; }
+  100% { transform: translateY(var(--sim-bubble-lift, -90px)); opacity: 0; }
+}
+
+@keyframes sim-generator-glow {
+  from { opacity: .6; filter: drop-shadow(0 0 1px #55d9ff); }
+  to { opacity: 1; filter: drop-shadow(0 0 4px #55d9ff); }
+}
+
+@keyframes sim-trend-breathe {
+  from { opacity: .08; r: 4.5px; }
+  to { opacity: .22; r: 7px; }
+}
+
+@keyframes sim-event-arrive {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sim-mimic [class*="sim-motion-"],
+  .sim-page .sim-motion-trend-halo,
+  .sim-page .sim-motion-trend-point,
+  .sim-page .sim-event-row {
+    animation: none !important;
+    transition: none !important;
+  }
+}
